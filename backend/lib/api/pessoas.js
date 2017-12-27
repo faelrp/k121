@@ -56,7 +56,7 @@ module.exports = () => {
     let remove = async (req, res, next) => {
 
         try {
-            let result = await controller.remove(req.body);
+            let result = await controller.remove(req.params);
             res.json(result);
         } catch (error) {
             res.status(500).send({
@@ -69,7 +69,7 @@ module.exports = () => {
     router.get('/:id', getById);
     router.post('/', post);
     router.put('/', put);
-    router.delete('/', remove);
+    router.delete('/:id', remove);
 
     return router;
 };

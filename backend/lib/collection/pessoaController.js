@@ -67,11 +67,36 @@ module.exports = () => {
         return new Promise(async (resolve, reject) => {
                         
             try {
-                let result = await Pessoa.remove({_id: data._id});                
+                let result = await Pessoa.remove({_id: data.id});                
 
                 console.log('Pessoa - removed successfully');                
 
                 resolve(result);
+            } catch (error) {
+                console.log(`Pessoa - unabled to remove [${error.message}]`);
+                reject(error.message);                
+            }
+        });
+    }
+
+    let updateAmigo = (users) => {
+        return new Promise(async (resolve, reject) => {
+                        
+            try {
+
+                for (let index = 0; index < users.length; index++) {
+                    const user = users[index];
+
+                    let doc = await Pessoa.findById(user._id);
+                
+                    doc.amigo = user.amigo;
+
+                    await doc.save();                    
+                }
+
+                console.log('Pessoa - Amigos updated successfully');
+
+                resolve(true);
             } catch (error) {
                 console.log(`Pessoa - unabled to remove [${error.message}]`);
                 reject(error.message);                
@@ -84,5 +109,6 @@ module.exports = () => {
         insert: insert,
         edit: edit,
         remove: remove,
+        updateAmigo: updateAmigo
     }
 }
