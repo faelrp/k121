@@ -1,3 +1,6 @@
+/**
+ * Modulo responsável por vincular a rota com o respectivo handle
+ */
 module.exports = () => {
     const router = require('express').Router();
 

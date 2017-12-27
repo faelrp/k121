@@ -1,7 +1,15 @@
 const Pessoa = require('./pessoaSchema');
 
+/**
+ * Moduloe responsavel por conter os metodos que fazem acesso ao MongoDB
+ */
 module.exports = () => {
 
+    /**
+     * Função responsavel por buscar um determinado usuario ou todos
+     * @param {Object} data Contem o id da pessoa or undefined
+     * @returns Um usuario espeifico ou todos
+     */
     let get = (data) => {
 
         return new Promise(async (resolve, reject) => {
@@ -24,6 +32,11 @@ module.exports = () => {
         });
     };
 
+    /**
+     * Função responsavel por fazer a inserção de uma nova pessoa
+     * @param {Object} data objeto que contem os dados da Pessoa
+     * @returns O objeto da Pessoa inserida
+     */
     let insert = (data) => {
 
         return new Promise(async (resolve, reject) => {
@@ -40,6 +53,11 @@ module.exports = () => {
         });
     };
     
+    /**
+     * Função responsavel por fazer a alteração de uma pessoa especifica
+     * @param {Object} data objeto que contem o id da pessoa
+     * @returns O objeto da Pessoa editada
+     */
     let edit = (data) => {
         
         return new Promise(async (resolve, reject) => {
@@ -62,6 +80,11 @@ module.exports = () => {
         });
     }
 
+    /**
+     * Função responsavel por fazer a remoção de uma pessoa especifica
+     * @param {Object} data objeto que contem o id da pessoa
+     * @returns Resultado da exclusão da Pessoa no banco
+     */
     let remove = (data) => {
         
         return new Promise(async (resolve, reject) => {
@@ -79,6 +102,11 @@ module.exports = () => {
         });
     }
 
+    /**
+     * Função responsavel por atualizar o campo amigo das Pessoas
+     * @param {Array} users usuarios que terão campo amigo atualizado
+     * @returns Lista de perssoas com o campo amigo atualizado
+     */
     let updateAmigo = (users) => {
         return new Promise(async (resolve, reject) => {
                         

@@ -1,3 +1,6 @@
+/**
+ * Modulo responsável por conter todos os metódos relacionados a rota Sorteio
+ */
 module.exports = () => {
 
     const express = require('express');
@@ -7,6 +10,13 @@ module.exports = () => {
     const sorteio = require('../sorteioSuffle.js');
     const email = require('../email.js');
 
+    /**
+     * Função relacionada ao Verb POST Sorteio, responsavel por realizar o sorteio e enviar o email
+     * @param {Object} req request
+     * @param {*} res response
+     * @param {*} next 
+     * @return Retorna as Pessoas ja com os amigos selecionados
+     */
     let post = async (req, res, next) => {
 
         try {
