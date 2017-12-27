@@ -5,6 +5,7 @@
         .constant('Endpoint', {
             api: 'http://localhost:5001/api',
             pessoas: '/pessoas',
-            pessoasId: '/pessoas/{{_id}}'
+            pessoasId: '/pessoas/{{_id}}',
+            sorteio: '/sorteio'
         });
 })();

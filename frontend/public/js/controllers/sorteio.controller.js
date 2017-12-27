@@ -5,8 +5,8 @@
         .module('app')
         .controller('SorteioController', Controller);
 
-    Controller.$inject = ['PessoaService'];
-    function Controller(pessoaService) {
+    Controller.$inject = ['PessoaService', 'SorteioService', '$mdToast'];
+    function Controller(pessoaService, sorteioService, $mdToast) {
 
         var vm = this;
 
@@ -20,7 +20,15 @@
         }
 
         function sorteio() {
-            console.log('test');
+            sorteioService.doIt()
+                .then(function () {
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .textContent('Sorteio dos amigos secretos foram enviados por email :)')
+                            .position('top right')
+                            .hideDelay(3000)
+                    );
+                });
         }
     }
 })();

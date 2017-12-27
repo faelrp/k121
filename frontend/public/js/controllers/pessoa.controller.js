@@ -5,13 +5,13 @@
         .module('app')
         .controller('PessoaController', Controller);
 
-    Controller.$inject = ['PessoaService'];
-    function Controller(pessoaService) {
+    Controller.$inject = ['PessoaService', '$state'];
+    function Controller(pessoaService, $state) {
 
         var vm = this;
 
-        vm.edit = edit;
         vm.remove = remove;
+        vm.addPerson = addPerson;
 
         activate();
 
@@ -25,8 +25,8 @@
                 });
         }
 
-        function edit() {
-
+        function addPerson() {
+            $state.go('add');
         }
 
         function remove(pessoa) {

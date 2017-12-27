@@ -18,7 +18,12 @@
                     </div>
                     <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
+
             </md-list>
+            <div layout="column" layout-align="center center" ng-if="vm.pessoas.length === 0">
+                Não há pessoas cadatradas ainda
+                <md-button class="md-raised md-primary" ng-click="vm.addPerson()">Cadastre uma agora =]</md-button>
+            </div>
         </md-content>
     </div>
 </div>
