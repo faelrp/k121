@@ -1,0 +1,25 @@
+{
+  "name": "k121-frontend",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Rafael Bertelli <rafael.p.bertelli@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.6.8",
+    "angular-material": "^1.1.5",
+    "angular-ui-router": "^1.0.12",
+    "lodash": "^4.17.4"
+  }
+}

@@ -1,0 +1,22 @@
+<div layout="column" layout-padding ng-cloak flex-offset="30" flex="40" ng-controller="PessoaAddController as vm">
+    <md-content class="md-no-momentum">
+        <form role="form" name="form">
+            <md-input-container class="md-icon-float md-block">
+                <label>Name</label>
+                <md-icon md-svg-src="img/ic_person_24px.svg" class="name"></md-icon>
+                <input ng-model="vm.user.nome" type="text" ng-required="true">
+            </md-input-container>
+
+
+            <md-input-container class="md-block">
+                <md-icon md-svg-src="img/ic_mail_24px.svg" class="email"></md-icon>
+                <input ng-model="vm.user.email" type="email" placeholder="Email" ng-required="true">
+            </md-input-container>
+
+            <div layout="row" layout-align="end center">
+                <md-button class="md-raised md-primary" ng-disabled='form.$invalid' ng-click="vm.save()">{{vm.editing ? 'Save' : 'Add'}}</md-button>
+            </div>
+        </form>
+
+    </md-content>
+</div>

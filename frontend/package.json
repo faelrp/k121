@@ -1,0 +1,16 @@
+{
+  "name": "k121-frontend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Rafael Bertelli <rafael.p.bertelli@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.29.0",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  }
+}

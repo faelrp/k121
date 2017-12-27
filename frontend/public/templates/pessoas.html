@@ -1,0 +1,24 @@
+<div layout="column" ng-controller="PessoaController as vm">
+    <div flex class="md-primary">
+        <md-content>
+            <md-list flex-offset="30" flex="40">
+                <md-list-item class="md-3-line" ng-click="null" ng-repeat="pessoa in vm.pessoas">
+                    <img src="img/avatar.jpg" class="md-avatar" />
+                    <div class="md-list-item-text" layout="column">
+                        <h4>{{pessoa.nome}}</h3>
+                            <h4>{{pessoa.email}}</h4>
+                    </div>
+                    <div layout="row">
+                        <md-button class="md-icon-button md-primary" aria-label="Edit" ui-sref="edit({pessoa: pessoa})">
+                            <md-icon md-svg-icon="img/ic_create_24px.svg"></md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button md-primary" aria-label="Delete" ng-click="vm.remove(pessoa)">
+                            <md-icon md-svg-icon="img/ic_delete_sweep_24px.svg"></md-icon>
+                        </md-button>
+                    </div>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+</div>

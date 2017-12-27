@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
+    <title>Amigo Secreto :)</title>
+</head>
+
+<body ng-app="app" ng-controller="MainController">
+
+    <div layout="column" style="height: 100%" ng-cloak>
+
+        <md-toolbar md-scroll-shrink class="md-primary">
+            <h2 class="md-toolbar-tools" layout="row" layout-align="center center">
+                <span>k121 - Amigo Secreto</span>
+            </h2>
+        </md-toolbar>
+
+        <md-content class="">
+            <md-nav-bar md-selected-nav-item="vm.selectedItem" nav-bar-aria-label="navigation links" layout="row" layout-align="center center">
+                <md-nav-item md-nav-sref="pessoas" sref-opts="{reload:true, notify:true}">
+                    Pessoas
+                </md-nav-item>
+                <md-nav-item md-nav-sref="add" sref-opts="{reload:true, notify:true}">
+                    Add
+                </md-nav-item>
+                <md-nav-item md-nav-sref="sorteio" sref-opts="{reload:true, notify:true}">
+                    Sorteio
+                </md-nav-item>
+
+            </md-nav-bar>
+            <div class="ext-content" ui-view flex>
+
+            </div>
+        </md-content>
+    </div>
+
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="/bower_components/angular-material/angular-material.min.js"></script>
+
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/endpoint.js"></script>
+
+    <script src="/js/controllers/main.controller.js"></script>
+    <script src="/js/controllers/pessoa.controller.js"></script>
+    <script src="/js/controllers/pessoaAdd.controller.js"></script>
+    <script src="/js/controllers/sorteio.controller.js"></script>
+
+    <script src="/js/services/pessoa.service.js"></script>
+
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+
+</body>
+
+</html>
