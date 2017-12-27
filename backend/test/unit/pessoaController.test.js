@@ -94,7 +94,7 @@ describe('Pessoa Controller', () => {
 
             pessoaSchema.findById.returns({save: document.save});
 
-            let result = await mod.remove({_id: 'test'});
+            let result = await mod.remove({id: 'test'});
 
             expect(result).to.be.an('string');
             expect(result).to.be.equal('ok')

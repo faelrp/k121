@@ -39,7 +39,10 @@ describe('Data Base', () => {
     it('should connect into the database', async () => {
         let result = await mod.connect();
 
-        expect(result).to.be.equal(`MongoDB - connected @ ${config.database.url}`);
+        let database = config.database;
+        let url = `mongodb://${database.user}:${database.pass}@${database.host}/${database.name}?ssl=${database.ssl}&replicaSet=${database.replicaSetName}&authSource=${database.authSource}`;
+
+        expect(result).to.be.equal(`MongoDB - connected @ ${url}`);
         expect(mongooseStub.connect.calledOnce).to.be.equal(true);
     });
 
@@ -54,7 +57,10 @@ describe('Data Base', () => {
             result = error;
         }
 
-        expect(result).to.be.equal(`MongoDB - unabled to connect @ ${config.database.url} [test error]`);
+        let database = config.database;
+        let url = `mongodb://${database.user}:${database.pass}@${database.host}/${database.name}?ssl=${database.ssl}&replicaSet=${database.replicaSetName}&authSource=${database.authSource}`;
+
+        expect(result).to.be.equal(`MongoDB - unabled to connect @ ${url} [test error]`);
         expect(mongooseStub.connect.calledOnce).to.be.equal(true);
     });
 });
