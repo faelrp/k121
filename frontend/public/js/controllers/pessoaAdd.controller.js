@@ -41,7 +41,7 @@
                 .then(function (result) {
                     var message = "";
                     if (result._id) {
-                        message = "Pessoa Added!";
+                        message = "People Added!";
                         $state.go('pessoas');
                     } else {
                         message = result.message || "Unabled to Added";
@@ -61,7 +61,7 @@
                 .then(function (result) {
                     var message = "";
                     if (result._id) {
-                        message = "Pessoa Updated!";
+                        message = "People Updated!";
                         $state.go('pessoas');
                     } else {
                         message = result.message || "Unabled to Update";
