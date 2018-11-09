@@ -4,13 +4,13 @@ const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(config.email.apiKey);
 
 /**
- * Modulo que manipula o envio de emails para as pessoas
+ * module that sends email to reach person.
  */
 module.exports = () => {
 
     /**
-     * Função que faz o envio dos emails para as pessoas
-     * @param {Array} users  List de pessoas
+     * handler to send email
+     * @param {Array} users List of people
      */
     function send(users) {
         users.forEach(async (user) => {
@@ -20,8 +20,8 @@ module.exports = () => {
                 let data = {
                     from: 'Admin <admin@example.com>',
                     to: user.email,
-                    subject: 'Resultado amigo secreto',
-                    text: `Seu amigo secreto é: ${user.amigo}`
+                    subject: 'Results of secret santa',
+                    text: `Your secret santa friend is : ${user.amigo}`
                 };
 
                 sgMail.send(data);

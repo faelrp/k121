@@ -1,21 +1,21 @@
 /**
- * Modulo responsável por conter todos os metódos relacionados a rota Sorteio
+ * Module responsible to contain all handler for draw route
  */
 module.exports = () => {
 
     const express = require('express');
     const router = express.Router();
 
-    const controller = require('../collection/pessoaController')();
-    const sorteio = require('../sorteioSuffle.js');
+    const controller = require('../collection/peopleController')();
+    const sorteio = require('../drawSuffle.js');
     const email = require('../email.js');
 
     /**
-     * Função relacionada ao Verb POST Sorteio, responsavel por realizar o sorteio e enviar o email
+     * Handler for POST verb on draw route
      * @param {Object} req request
      * @param {*} res response
      * @param {*} next 
-     * @return Retorna as Pessoas ja com os amigos selecionados
+     * @return Returns people with each matched friend
      */
     let post = async (req, res, next) => {
 

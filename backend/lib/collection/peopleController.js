@@ -1,12 +1,12 @@
-const Pessoa = require('./pessoaSchema');
+const Pessoa = require('./peopleSchema');
 
 /**
- * Moduloe responsavel por conter os metodos que fazem acesso ao MongoDB
+ * Model for People collection
  */
 module.exports = () => {
 
     /**
-     * Função responsavel por buscar um determinado usuario ou todos
+     * gets all people or a person by id
      * @param {Object} data Contem o id da pessoa or undefined
      * @returns Um usuario espeifico ou todos
      */
@@ -18,24 +18,24 @@ module.exports = () => {
                 let result;
                 if (data && data.id) {
                     result = await Pessoa.findById(data.id);
-                    console.log(`Pessoa - retrieved Pessoa id ${data.id}`);
+                    console.log(`People - retrieved person id ${data.id}`);
                 } else {
                     result = await Pessoa.find();
-                    console.log('Pessoa - retrieved all Pessoas succesfully');
+                    console.log('People - retrieved all People succesfully');
                 }
                 
                 resolve(result);
             } catch (error) {
-                console.log(`Pessoa - unabled to retrieve all Pessoas [${error.message}]`);
+                console.log(`People - unabled to retrieve all People [${error.message}]`);
                 reject(error.message);
             }    
         });
     };
 
     /**
-     * Função responsavel por fazer a inserção de uma nova pessoa
-     * @param {Object} data objeto que contem os dados da Pessoa
-     * @returns O objeto da Pessoa inserida
+     * inserts a new person
+     * @param {Object} data
+     * @returns return the inserted person.
      */
     let insert = (data) => {
 
@@ -43,20 +43,20 @@ module.exports = () => {
 
             try {
                 let result = await new Pessoa(data).save();
-                console.log('Pessoa - created successfully');
+                console.log('People - created successfully');
                 
                 resolve(result);
             } catch (error) {
-                console.log(`Pessoa - unabled to create [${error.message}]`);
+                console.log(`People - unabled to create [${error.message}]`);
                 reject(error.message);
             }    
         });
     };
     
     /**
-     * Função responsavel por fazer a alteração de uma pessoa especifica
-     * @param {Object} data objeto que contem o id da pessoa
-     * @returns O objeto da Pessoa editada
+     * Updates specific person
+     * @param {Object} data 
+     * @returns The Person object that was updated.
      */
     let edit = (data) => {
         
@@ -70,20 +70,20 @@ module.exports = () => {
 
                 let result = await doc.save();
 
-                console.log('Pessoa - edited successfully');                
+                console.log('People - edited successfully');                
 
                 resolve(result);
             } catch (error) {
-                console.log(`Pessoa - unabled to edit [${error.message}]`);
+                console.log(`People - unabled to edit [${error.message}]`);
                 reject(error.message);                
             }
         });
     }
 
     /**
-     * Função responsavel por fazer a remoção de uma pessoa especifica
-     * @param {Object} data objeto que contem o id da pessoa
-     * @returns Resultado da exclusão da Pessoa no banco
+     * Removes a specific person
+     * @param {Object} data 
+     * @returns returna person that was removed from database
      */
     let remove = (data) => {
         
@@ -92,20 +92,20 @@ module.exports = () => {
             try {
                 let result = await Pessoa.remove({_id: data.id});                
 
-                console.log('Pessoa - removed successfully');                
+                console.log('People - removed successfully');                
 
                 resolve(result);
             } catch (error) {
-                console.log(`Pessoa - unabled to remove [${error.message}]`);
+                console.log(`People - unabled to remove [${error.message}]`);
                 reject(error.message);                
             }
         });
     }
 
     /**
-     * Função responsavel por atualizar o campo amigo das Pessoas
-     * @param {Array} users usuarios que terão campo amigo atualizado
-     * @returns Lista de perssoas com o campo amigo atualizado
+     * updates the match friend.
+     * @param {Array} users
+     * @returns List of poeple with all friend already shuffled.
      */
     let updateAmigo = (users) => {
         return new Promise(async (resolve, reject) => {
@@ -122,11 +122,11 @@ module.exports = () => {
                     await doc.save();                    
                 }
 
-                console.log('Pessoa - Amigos updated successfully');
+                console.log('People - Friends updated successfully');
 
                 resolve(true);
             } catch (error) {
-                console.log(`Pessoa - unabled to remove [${error.message}]`);
+                console.log(`People - unabled to remove [${error.message}]`);
                 reject(error.message);                
             }
         });

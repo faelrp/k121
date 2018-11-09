@@ -1,11 +1,11 @@
 /**
- * Modulo responsável por vincular a rota com o respectivo handle
+ * Module that bind all routes which theirs handlers.
  */
 module.exports = () => {
     const router = require('express').Router();
 
-    router.use('/pessoas', require('./pessoas')());
-    router.use('/sorteio', require('./sorteio')());
+    router.use('/pessoas', require('./people')());
+    router.use('/sorteio', require('./draft')());
 
     return router;
 };

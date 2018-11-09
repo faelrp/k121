@@ -1,19 +1,19 @@
 /**
- * Modulo responsável por conter todos os metódos relacionados a rota Pessoas
+ * Module responsible to contain all handler for people route
  */
 module.exports = () => {
 
     const express = require('express');
     const router = express.Router();
 
-    const controller = require('../collection/pessoaController')();
+    const controller = require('../collection/peopleController')();
 
     /**
-     * Função relacionada ao Verb GET Pessoas
+     * Handler for GET verb for Poeple route
      * @param {Object} req request
      * @param {*} res response
      * @param {*} next 
-     * @return Todas as Pessoas cadastradas
+     * @return Array of existing people
      */
     let get = async (req, res, next) => {
 
@@ -28,11 +28,11 @@ module.exports = () => {
     };
 
     /**
-     * Função relacionada ao Verb GET Pessoas pelo ID
+     * handler to get person by ID
      * @param {Object} req request
      * @param {*} res response
      * @param {*} next 
-     * @return Retorna uma pessoa com base no id da mesma
+     * @return Returns the person that matchs with passed id
      */
     let getById = async (req, res, next) => {
 
@@ -47,11 +47,11 @@ module.exports = () => {
     };
 
     /**
-     * Função relacionada ao Verb PUT Pessoas
+     * handler for PUT verb on people route
      * @param {Object} req request
      * @param {*} res response
      * @param {*} next 
-     * @return Pessoa que foi atualizada
+     * @return Person that was updated.
      */
     let put = async (req, res, next) => {
 
@@ -66,11 +66,11 @@ module.exports = () => {
     };
 
     /**
-     * Função relacionada ao Verb POST Pessoas, onde faz a inserção de uma nova pessoa
+     * Handler for POST verb on people route
      * @param {Object} req request
      * @param {*} res response
      * @param {*} next 
-     * @return Pessoa que foi inserida
+     * @return Person that was inserted.
      */
     let post = async (req, res, next) => {
 
@@ -85,12 +85,12 @@ module.exports = () => {
     };
 
     /**
-     * Função relacionada ao Verb DELETE Pessoas, responsavel por remover uma determinada
-     * Pessoa pelo ID
+     * Handler for DELETE verb on people route
+     * 
      * @param {Object} req request
      * @param {*} res response
      * @param {*} next 
-     * @return Pessoa que foi atualizada
+     * @return Person that was removed.
      */
     let remove = async (req, res, next) => {
 

@@ -7,22 +7,22 @@ let sandbox = sinon.sandbox.create();
 let expect = chai.expect;
 let mod;
 
-let pessoaSchema = {};
+let peopleSchema = {};
 let document = {};
 
-describe('Pessoa Controller', () => {
+describe('People Controller', () => {
 
     beforeEach(function () {
 
-        pessoaSchema.findById = sandbox.stub().returns({ nome: 'test1' });
-        pessoaSchema.find = sandbox.stub().returns([{ nome: 'test1' }, { nome: 'test2' }]);
-        pessoaSchema.remove = sandbox.stub().returns('ok');
+        peopleSchema.findById = sandbox.stub().returns({ nome: 'test1' });
+        peopleSchema.find = sandbox.stub().returns([{ nome: 'test1' }, { nome: 'test2' }]);
+        peopleSchema.remove = sandbox.stub().returns('ok');
 
         document.save = sandbox.stub().returns('ok');
 
-        mod = sandboxed.require('../../lib/collection/pessoaController.js', {
+        mod = sandboxed.require('../../lib/collection/peopleController.js', {
             requires: {
-                './pessoaSchema': pessoaSchema
+                './peopleSchema': peopleSchema
             }
         })();
     });
@@ -54,8 +54,8 @@ describe('Pessoa Controller', () => {
             expect(result.length).to.be.equal(2);
             expect(result).to.deep.equal(array)
 
-            expect(pessoaSchema.find.calledOnce).to.be.equal(true);
-            expect(pessoaSchema.findById.notCalled).to.be.equal(true);
+            expect(peopleSchema.find.calledOnce).to.be.equal(true);
+            expect(peopleSchema.findById.notCalled).to.be.equal(true);
         });
 
         it('should get only 1 pessoa when there is id specified', async () => {
@@ -67,8 +67,8 @@ describe('Pessoa Controller', () => {
             expect(result).to.be.an('object');
             expect(result).to.deep.equal(object)
 
-            expect(pessoaSchema.find.notCalled).to.be.equal(true);
-            expect(pessoaSchema.findById.calledOnce).to.be.equal(true);
+            expect(peopleSchema.find.notCalled).to.be.equal(true);
+            expect(peopleSchema.findById.calledOnce).to.be.equal(true);
         });
     });
 
@@ -76,15 +76,15 @@ describe('Pessoa Controller', () => {
 
         it('should update a Pessoa', async () => {
 
-            pessoaSchema.findById.returns({save: document.save});
+            peopleSchema.findById.returns({save: document.save});
 
             let result = await mod.edit({_id: 'test', nome: 'Rafael', email: 'rafael.p.bertelli@gmail.com'});
 
             expect(result).to.be.an('string');
             expect(result).to.be.equal('ok')
 
-            expect(pessoaSchema.findById.calledOnce).to.be.equal(true);
-            expect(pessoaSchema.findById.calledWith('test')).to.be.equal(true);
+            expect(peopleSchema.findById.calledOnce).to.be.equal(true);
+            expect(peopleSchema.findById.calledWith('test')).to.be.equal(true);
         });
     });
 
@@ -92,15 +92,15 @@ describe('Pessoa Controller', () => {
 
         it('should remove a Pessoa', async () => {
 
-            pessoaSchema.findById.returns({save: document.save});
+            peopleSchema.findById.returns({save: document.save});
 
             let result = await mod.remove({id: 'test'});
 
             expect(result).to.be.an('string');
             expect(result).to.be.equal('ok')
 
-            expect(pessoaSchema.remove.calledOnce).to.be.equal(true);
-            expect(pessoaSchema.remove.calledWith({_id: 'test'})).to.be.equal(true);
+            expect(peopleSchema.remove.calledOnce).to.be.equal(true);
+            expect(peopleSchema.remove.calledWith({_id: 'test'})).to.be.equal(true);
         });
     });
 });

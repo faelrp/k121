@@ -1,10 +1,10 @@
 ## K121
 
-Secret Friend App - Node.js Based Application
+Secret Santa App - Node.js Based Application
 
 ---
 
-### Tecnologias Usadas
+### Tech Stack
 
 #### Backend
 
@@ -23,16 +23,12 @@ Secret Friend App - Node.js Based Application
  * [Angularjs Material](https://material.angularjs.org/latest/)
  * [Lodash](https://lodash.com/)
 
-### Demo
-
-[http://app.rbdev.me](http://app.rbdev.me/)
-
-### Requisitos
+### Things needed
 
 Node.js 8.0.0
 Bower Instalado Globalmente
 
-### Instalação e Inicialização
+### How to execute
 
 	git clone https://github.com/faelrp/k121.git
 
@@ -42,7 +38,7 @@ Bower Instalado Globalmente
     npm install
     npm start
 
-    Backend estará rodando na porta 5001
+    Backend will be running at port 5001
 
 #### Frontend
 
@@ -51,9 +47,8 @@ Bower Instalado Globalmente
     bower install
     npm start
 
-    Frontend estará rodando na porta 5000
+    Frontend will be running at port 5000
 
-    
 ### Unit Test
 
 	npm run test

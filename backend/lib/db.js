@@ -2,14 +2,14 @@ const config = require('config');
 const mongoose = require('mongoose');
 
 /**
- * Modulo responsavel por conectar ao mongodb
+ * Moduls that handler all things related to connection to the database.
  */
 module.exports = () => {
 
     mongoose.Promise = Promise;
 
     /**
-     * Função que fará a conexão
+     * handler to connect into db
      */
     let connect = async () => {
 
